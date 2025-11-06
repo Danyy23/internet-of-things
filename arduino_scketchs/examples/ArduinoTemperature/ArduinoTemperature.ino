@@ -13,20 +13,19 @@ void setup() {
   pinMode(LED_RED, OUTPUT);
   dht.begin();
   Serial.begin(9600);
-  Serial.println("::Hello to weather station::");
+  Serial.println("::Hello to weather station::" );
 }
 
 void loop() {
   humidity = dht.readHumidity();
   temperature = dht.readTemperature();
 
+  // Corregir el uso de la variable 'humidity' (en minúsculas)
   Serial.print("Humidity: ");
   Serial.print(humidity);
-  Serial.println("%");
-
+  Serial.print(", ");
   Serial.print("Temperature: ");
-  Serial.print(temperature);
-  Serial.println(" C");
+  Serial.println(temperature);
 
-  delay(2000);
+  delay(2000);  // Espera de 2 segundos antes de leer nuevamente
 }
